@@ -124,13 +124,5 @@ class Operation():
         return opData
 
 class OperationIndex(Operation):
-    def __init__(self, opData):
-        self.clean_op = opData
-        self.opData = { key:opData[key] for key in ['block_num', 'operation_type', 'transaction_id', 'tx_originator', 'tx_involves' ]}
-
-        # If this is a virtual_op, we need some sort of unique ID
-        if self.opData['transaction_id'] == '0000000000000000000000000000000000000000':
-            # Create a repeatable unique identifier for this virtual operation
-            opJSON = json.dumps(self.clean_op, sort_keys=True, default=str)
-            self.opData['vop_hex_id'] = hashlib.sha1(opJSON.encode('utf-8')).hexdigest()
-            self.opData.pop('transaction_id', None)
+    def __init__(self, opModel):
+        self.opData = { key:opModel[key] for key in ['block_num', 'operation_type', 'transaction_id', 'tx_originator', 'tx_involves' , 'vop_hex_id'] }
