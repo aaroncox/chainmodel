@@ -1,11 +1,11 @@
 import datetime
 from pprint import pprint
 
-from blockmodel import Blockmodel
-from blockmodel.models.steem.schema import Schema
+from chainmodel import ChainModel
+from chainmodel.models.steem.schema import Schema
 
-# Setup Blockmodel + Schema
-blockmodel = Blockmodel(schema=Schema())
+# Setup ChainModel + Schema
+ChainModel = ChainModel(schema=Schema())
 
 opData = {
     'voter': 'hrabiamaurycy',
@@ -18,7 +18,7 @@ opData = {
     'transaction_id': '39a7ba77b55867249538122f8ae672a2dd829cf5'
 }
 
-model = blockmodel.get(opData)
+model = ChainModel.get(opData)
 
 print("\noriginal opData")
 pprint(opData)
@@ -29,7 +29,7 @@ pprint(model.query())
 print("\ndata to save for this model")
 pprint(model.data())
 
-index = blockmodel.index(model)
+index = ChainModel.index(model)
 
 print("\nunique id for this index")
 pprint(index.query())

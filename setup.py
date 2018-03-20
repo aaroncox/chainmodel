@@ -1,10 +1,10 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='blockmodel',
+    name='ChainModel',
     version='0.1.0',
     description='Provides a layer for interpretting and transforming block and op data',
-    url='http://github.com/aaroncox/blockmodel',
+    url='http://github.com/aaroncox/chainmodel',
     author='Aaron Cox',
     author_email='aaron@greymass.com',
     license='MIT',
