@@ -19,6 +19,7 @@ class Schema():
             'comment': Comment,
             'comment_benefactor_reward': CommentBenefactorReward,
             'comment_options': CommentOptions,
+            'convert': Convert,
             'curation_reward': CurationReward,
             'custom_json': CustomJSON,
             'custom_json_subtypes': {
@@ -28,6 +29,7 @@ class Schema():
             'delegate_vesting_shares': DelegateVestingShares,
             'delete_comment': DeleteComment,
             'feed_publish': FeedPublish,
+            'fill_convert_request': FillConvertRequest,
             'fill_order': FillOrder,
             'fill_transfer_from_savings': FillTransferFromSavings,
             'fill_vesting_withdraw': FillVestingWithdraw,
