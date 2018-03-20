@@ -11,7 +11,9 @@ class Blockmodel():
     def index(self, opData):
         return self.schema.models['index'](opData)
 
-    def get(self, opData, opType=False, opSubtype=False):
+    def get(self, opData):
+        opType = opData['operation_type']
+        opSubtype = "{}_subtypes".format(opType)
         models = self.schema.models
         # custom_json sub models - use a custom model for each custom_json type if it exists
         if opSubtype in models['ops'] and isinstance(models['ops'][opSubtype], dict):
