@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='chainmodel',
-    version='0.1.1',
+    version='0.1.2',
     description='Provides a layer for interpretting and transforming block and op data',
     url='http://github.com/aaroncox/chainmodel',
     author='Aaron Cox',

@@ -33,6 +33,7 @@ class Schema():
             'fill_vesting_withdraw': FillVestingWithdraw,
             'limit_order_cancel': LimitOrderCancel,
             'limit_order_create': LimitOrderCreate,
+            'pow': Pow,
             'producer_reward': ProducerReward,
             'recover_account': RecoverAccount,
             'request_account_recovery': RequestAccountRecovery,
