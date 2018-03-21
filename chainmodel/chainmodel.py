@@ -11,16 +11,18 @@ class ChainModel():
     def index(self, opData):
         return self.schema.models['index'](opData)
 
+    def getSubtype(self, opData):
+        if opData['operation_type'] == 'custom_json' and 'id' in opData:
+            return '.'.join([opData['operation_type'], opData['id']])
+        return None
+
     def get(self, opData):
         opType = opData['operation_type']
-        opSubtype = "{}_subtypes".format(opType)
+        opSubtype = self.getSubtype(opData)
         models = self.schema.models
-        # custom_json sub models - use a custom model for each custom_json type if it exists
-        if opSubtype in models['ops'] and isinstance(models['ops'][opSubtype], dict):
-            op = models['op'](opData)
-            opData['id'] = op.dotpath(opData, 'json.0')
-            if opData['id'] in models['ops'][opSubtype]:
-                op = models['ops'][opSubtype][opData['id']](opData)
+
+        if opSubtype and opSubtype in models['ops']:
+            op = models['ops'][opSubtype](opData)
 
         # otherwise if a model is defined, use that
         elif opType in models['ops']:

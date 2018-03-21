@@ -1,4 +1,4 @@
-from chainmodel.models.steem.operation import Operation
+from chainmodel.models.steem.ops import Operation
 
 class Follow(Operation):
 
