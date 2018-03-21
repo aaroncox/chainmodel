@@ -1,6 +1,6 @@
 from chainmodel.models.steem.operation import Operation
 
-class FillConvertRequest(Operation):
+class LiquidityReward(Operation):
 
-    asset_fields = ['amount_in','amount_out']
+    asset_fields = ['payout']
     tx_involves = ['owner']

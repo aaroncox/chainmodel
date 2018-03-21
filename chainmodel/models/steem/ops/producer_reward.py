@@ -4,4 +4,3 @@ class ProducerReward(Operation):
 
     asset_fields = ['vesting_shares']
     tx_involves = ['producer']
-    tx_originator = 'producer'

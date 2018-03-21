@@ -4,4 +4,3 @@ class AuthorReward(Operation):
 
     asset_fields = ['sbd_payout', 'steem_payout', 'vesting_payout']
     tx_involves = ['author']
-    tx_originator = 'author'
