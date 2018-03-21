@@ -1,5 +1,6 @@
 import json
 import hashlib
+from datetime import datetime
 
 def nested_set(dic, keys, value):
     for key in keys[:-1]:
@@ -25,6 +26,16 @@ class Operation():
                     opData[field] = json.loads(opData[field])
                 except:
                     pass
+
+        # Load any fields that are strings but contain datetime values
+        datetime_fields = ['timestamp'] + getattr(self, "datetime_fields", [])
+        for field in datetime_fields:
+            if field in opData:
+                try:
+                    opData[field] = self.formatDate(opData[field])
+                except:
+                    pass
+
 
         # field_map allows the renaming of fields and moving of data on the model
         # The field_map should be a dict, where the key is the new field name and the value is the path to the value
@@ -88,6 +99,8 @@ class Operation():
         if callable(beforeSave):
             self.beforeSave()
 
+    def formatDate(self, ts):
+        return datetime(int(ts[:4]), int(ts[5:7]), int(ts[8:10]), int(ts[11:13]), int(ts[14:16]), int(ts[17:19]))
 
     def query(self):
         query = {
