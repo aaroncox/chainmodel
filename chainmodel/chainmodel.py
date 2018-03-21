@@ -2,7 +2,7 @@ class ChainModel():
 
     def __init__(self, schema=None):
         if not schema:
-            raise Exception("A valid schema must be supplied.")
+            raise Exception('valid_schema_required')
         self.schema = schema
 
     def block(self, blockData):
@@ -30,7 +30,7 @@ class ChainModel():
 
         # otherwise encapsulate in a generic operation model
         else:
-            print("{} - {}".format(opData['block_num'], opType))
+            print('{} - {}'.format(opData['block_num'], opType))
             # pprint(opData)
             op = models['op'](opData)
 
